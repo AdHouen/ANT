@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="creationarborescence" default="creer" basedir=".">
+
+    <!-- Properties -->
+
+    <property environment="env"/>
+
+    <!-- Creer -->
+    <target name="cree">
+        <mkdir dir="${basedir}/TP_DOS/R1"/>
+        <touch file="TP_DOS/R1/tata"/>
+        <touch file="TP_DOS/R1/ab12"/>
+        <touch file="TP_DOS/R1/tutu"/>
+        <touch file="TP_DOS/R1/titi"/>
+        <touch file="TP_DOS/R1/toto"/>
+        <touch file="TP_DOS/R1/trivial"/>
+        <touch file="TP_DOS/R1/t632"/>
+        <touch file="TP_DOS/R1/tbc2"/>
+        <touch file="TP_DOS/R1/tnt"/>
+        <touch file="TP_DOS/R1/t"/>
+    </target> 
+
+    <!-- Copie -->
+    <target name="copie">
+        <copy todir="${env.TMP}">
+            <fileset dir="TP_DOS"/>
+        </copy>
+    </target>
+
+    <!-- Supprimer -->
+
+    <target name="clean">
+        <delete dir="${basedir}/TP_DOS"/>
+    </target> 
+
+    <!-- Archivage -->
+    <target name="archive">
+        <zip destfile="TP_DOS/R1.zip" basedir="TP_DOS/R1" update="true"/>
+    </target>
+
+    <!-- Deploiement et dependance -->
+    <target name="deploy" depends="archive">
+        <unzip src="TP_DOS/R1.zip" dest="${env.TMP}/backup"/>
+    </target>
+
+    
+
+
+    
+
+
+
+</project>
